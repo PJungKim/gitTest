@@ -1,3 +1,6 @@
+$target(apps/guide/)
+
+
 main(){
 	print("민기")
 }
