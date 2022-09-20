@@ -1,6 +1,36 @@
 $target(apps/guide/)
 
-
+///민기짱
 main(){
-	print("민기")
+   	oledclear()
+	cleanimg(4)
+	cleanimg(5)
+	cleanimg(7)
+	cleanimg(8)
+	#x(0)
+	#c(0)
+	#st(State_No_Reset | State_Instant | State_One | State_Delta | State_Down)
+	time()
+	#t(0)
+	#ct(0)
+	timeget(_t)
+	{
+		timeget(_ct)
+		if(ct-t>70){
+			#t(#t+70)
+			#x(0~8)
+			imgdotget(4, #x, 7, _c)
+			if(!(#c & 0xFF)){
+				imgdot(4, #x, 7, 255:32:#st)
+				imgdot(5, #x, 7, [rgb](180~220:255:255)/**[rgb](0~240:0~140:255)**/)
+			}
+			imgval(6, 5, 4, 0)
+			imgcpy(8, 7, 0, 7, 1, 7, 0, 0)
+			imgcpy(7, 8)
+			imgcpy(7, 6, 0, 7, 7, 7, 0, 7)
+			imgprt(7)
+			imgnst(4)
+		}
+		again(1)
+	}
 }
